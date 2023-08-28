@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "commander": "^11.0.0",
+    "sharp": "^0.32.5"
+  },
+  "name": "commander-sharp",
+  "description": "命令行的图片处理工具, 使用sharp作为图片处理",
+  "version": "1.0.0-alpha.1",
+  "main": "main.js",
+  "bin":{
+    "cst":"./main.js",
+    "commander-sharp":"./main.js"
+  },
+  "scripts": {
+    "img": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["sharp","commander","cmd","image","png","jpg"],
+  "author": "yanluoluo",
+  "license": "ISC"
+}
