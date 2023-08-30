@@ -1,24 +1,12 @@
-let target = {
-  png: {
-    compress: true, //压缩
-    rotate: true, //旋转
-  },
-  jpg: {
-    compress: true,
-    rotate: true,
-  }
-}
+
+/**
+ * 获取当前的支持列表，输入图片后缀就可以了
+ * @param {string | undefined} str support image type
+ * @example
+ * getConfigType("png")
+ */
 function getConfigType(str) {
-  // 展示可处理列表
-  try {
-    if (str === undefined) {
-      console.table(target)
-    } else {
-      console.table(target[str])
-    }
-  } catch (e) {
-    console.error(e)
-  }
+  console.log("开发中")
 }
 
 module.exports = getConfigType

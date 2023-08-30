@@ -2,16 +2,20 @@
 const { program } = require("commander")
 
 const getConfigType = require("./bin/config/getConfigType.js")
+const compress = require("./bin/compress/index.js")
+
 
 program
   .name("commander-sharp")
   .description("利用命令行来处理图片")
   .version("0.1.0")
 
-// program.command("compress")
-//   .description("压缩图片")
-//   .option("-q,--quality <string | number>","压缩率",70)
-//   .option("")
+program.command("compress")
+  .description("压缩图片")
+  .argument("<string>","需要处理图片目录路径或者图片路径")
+  .option("-q, --quality [string | number]","压缩率",70)
+  .option("-o, --out [path]","完成后的目录")
+  .action(compress)
 
 // 获取可以处理的图片对象
 program.command("config-type")
