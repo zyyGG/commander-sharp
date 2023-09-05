@@ -10,9 +10,8 @@ const { listFolder } = require("../../utils/index")
  */
 function compress(str, options) {
   console.log("compress 开发中")
-  
+  // 获取结果
   const result = listFolder(str)
-  console.log(result)
   
 }
 
