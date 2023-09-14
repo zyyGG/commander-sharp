@@ -10,6 +10,7 @@
 
 ## 安装
 ### 通过npm
+（版本可能没有github上的新）
 `npm install --global commander-sharp`
 
 ### 通过github
@@ -20,15 +21,15 @@
 
 ## 常用的命令
 ### 压缩图片
-`cst compress <path>`,
+`cst compress <path> [-o] [-q]`,
 #### 设置
-1. `--quality <number | string>`:压缩率，默认70
-2. `--out <path>`:压缩完成输出的文件夹
+1. `-q | --quality <string>`:压缩率，默认70，值越高，压缩的越严重
+2. `-o | --out <path>`:压缩完成输出的文件夹
 
 ### 旋转图片
 `cst rotate <path>`
 #### 设置
-1. `--degree <number>`:旋转角度,默认90度
+1. `-d | --degree <number>`:旋转角度,默认90度
 
 ## 其他命令
 ### 查看可处理的图片类型
