@@ -29,12 +29,12 @@
 * `-q , --quality [string]` 压缩率，值越高，压缩的越严重。default:30
 * `-o , --out <path>` 压缩完成输出的文件夹 default:覆盖原文件
 #### examples
-`cst compress`
-`cst compress "./"` 
-`cst compress "a.png` 
-`cst compress "./folder/a.png"`  
-`cst compress "a.png" -q 90`
-`cst compress "a.png" -o "./demo"`
+* `cst compress`
+* `cst compress "./"` 
+* `cst compress "a.png` 
+* `cst compress "./folder/a.png"`  
+* `cst compress "a.png" -q 90`
+* `cst compress "a.png" -o "./demo"`
 
 ***
 ### 将图片中的指定颜色换成另一种颜色
@@ -45,9 +45,9 @@
 * `-o, --out [string]` 压缩完成输出的文件夹 default:覆盖原文件
 
 #### examples
-`cst replaceColor "a.png" white` 替换a.png所有的颜色为白色
-`cst replaceColor "a.png" #ff0000` 替换a.png所有的颜色为红色
-`cst replaceColor "a.png" white -o "./demo"` 处理的完成的图片会被复制到`./demo/a.png`
+* `cst replaceColor "a.png" white` 替换a.png所有的颜色为白色
+* `cst replaceColor "a.png" #ff0000` 替换a.png所有的颜色为红色
+* `cst replaceColor "a.png" white -o "./demo"` 处理的完成的图片会被复制到`./demo/a.png`
 
 
 ***
