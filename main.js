@@ -21,7 +21,7 @@ program.command("compress")
 // 将图片中的指定颜色换成另一种颜色
 program.command("replaceColor")
   .description("将指定图片中的指定颜色换成指定的颜色")
-  .argument("[string]","需要处理图片目录路径或者图片路径","./")
+  .argument("<string>","需要处理图片目录路径或者图片路径")
   .argument("<string>","新颜色")
   .option("-c, --color [string]","指定更改的颜色",undefined)
   .option("-r, --range [number]","模糊匹配范围,值越高，模糊查找的范围就越大,0-255",5)

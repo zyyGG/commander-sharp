@@ -22,22 +22,30 @@
 ***
 ## 帮助
 `cst help`
-***
 ## 命令
-***
 ### 压缩图片
 `cst compress <path> [-o] [-q]`,
 #### options
 * `-q , --quality [string]` 压缩率，值越高，压缩的越严重。default:30
 * `-o , --out <path>` 压缩完成输出的文件夹 default:覆盖原文件
+#### examples
+`cst compress`
+`cst compress "./"` 
+`cst compress "a.png` 
+`cst compress "./folder/a.png"`  
+`cst compress "a.png" -q 90`
+`cst compress "a.png" -o "./demo"`
 
 ***
 ### 将图片中的指定颜色换成另一种颜色
 `cst replaceColor <path> <newColor>`
 #### options
-* `-c, --color [string]` 需要替换的颜色,default:undefined
+* `-c, --color [string]` 需要替换的颜色,default:颜色全部替换
 * `-r, --range [number]` 模糊匹配范围,值越高，模糊查找的范围就越大,0-255，default:5
 * `-o, --out [string]` 压缩完成输出的文件夹 default:覆盖原文件
+
+#### examples
+`cst replaceColor`
 
 ***
 ## 其他命令

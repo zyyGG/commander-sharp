@@ -11,7 +11,6 @@ const createDirection = require("../../utils/createDirection")
 
 // 更换颜色
 module.exports = function (target, newColor, options) {
-
   // 初始化与参数检测
   const targetList = listFolder(target)
   if (targetList.length === 0) return

@@ -9,7 +9,7 @@ const isImage = require("./isImage")
  * @param {string} target 目录或者文件
  */
 const listFolder = (target) => {
-  if(!fs.existsSync(target)) return
+  if(!fs.existsSync(target)) return []
   let result = []
   function readImage(target) {
     // 是否是文件夹
