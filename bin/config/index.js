@@ -1,11 +1,15 @@
 const config = [
   {
     name:"png",
-    support:["compress","rotate"]
+    support:["compress","rotate","replaceColor"]
   },
   {
     name:"jpg",
-    support:["compress","rotate"]
+    support:["compress","rotate","replaceColor"]
+  },
+  {
+    name:"webp",
+    support:["compress","rotate","replaceColor"]
   }
 ]
 

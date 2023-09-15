@@ -3,7 +3,8 @@ const path = require("path")
 const sharp = require("sharp")
 const chalk = require("chalk")
 
-const { listFolder } = require("../../utils/index")
+const listFolder = require("../../utils/listFolder")
+const createDirection = require("../../utils/createDirection")
 
 /**
  * 压缩目标目录 或者 单个文件
@@ -12,10 +13,7 @@ const { listFolder } = require("../../utils/index")
  * @param {string} options.out 图片处理完成后放在哪里,默认覆盖
  */
 function compress(str, options) {
-  // 获取结果
   const result = listFolder(str)
-
-
   // 预处理图片
   result.forEach(item => {
     const image = sharp(item)
@@ -26,10 +24,11 @@ function compress(str, options) {
       .then(async (metadata) => {
         const type = metadata.format
         return image
-          .toFormat(type, { quality: 100 - options.quality })
+          .toFormat(type, { quality: Math.min(Math.max(100 - options.quality,1),100) })
           .toBuffer()
           .then(data =>{
-            const target = createDirection(path.join(targetDir, item))
+            const target = path.join(targetDir, item)
+            createDirection(path.dirname(target))
             fs.writeFile(
               target,
               data,
@@ -44,9 +43,5 @@ function compress(str, options) {
 }
 
 
-function createDirection(target) {
-  const dir = path.dirname(target)
-  !fs.existsSync(dir) && (fs.mkdirSync(dir))
-  return target
-}
+
 module.exports = compress
