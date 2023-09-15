@@ -7,7 +7,7 @@
   },
   "name": "commander-sharp",
   "description": "命令行的图片处理工具, 使用sharp作为图片处理",
-  "version": "1.0.0-alpha.1.1",
+  "version": "1.0.0-alpha.1.2",
   "main": "main.js",
   "bin": {
     "cst": "./main.js",
@@ -21,8 +21,10 @@
     "commander",
     "cmd",
     "image",
+    "compress",
     "png",
-    "jpg"
+    "jpg",
+    "webp"
   ],
   "author": "yanluoluo",
   "license": "ISC"

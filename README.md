@@ -56,4 +56,5 @@
 `cst config-type [string]`
 
 ## 更新日志
-[日志](./log.md)
+[github](https://github.com/zyyGG/commander-sharp)
+[日志](https://github.com/zyyGG/commander-sharp/blob/master/log.md)
