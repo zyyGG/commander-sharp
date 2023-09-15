@@ -9,15 +9,17 @@
 |  jpg  |   yes    |
 | webp  |   yes    |
 
-## 安装
-***
-### 通过npm
-（版本可能没有github上的新）
-`npm install --global commander-sharp`
+## 安装(install)
+### npm
+* `npm install --global commander-sharp`
+* 命令行输入`cst --version`，如果看到有输出则安装成功
 
 ***
-### 通过github
-下载仓库后，通过 npm link 即可
+### github
+* `git clone https://github.com/zyyGG/commander-sharp.git`
+* `npm install` 
+* `npm link`
+* 命令行输入`cst --version`，如果看到有输出则安装成功
 
 ***
 ## 帮助
@@ -57,4 +59,5 @@
 
 ## 更新日志
 [github](https://github.com/zyyGG/commander-sharp)
+
 [日志](https://github.com/zyyGG/commander-sharp/blob/master/log.md)

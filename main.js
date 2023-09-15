@@ -8,7 +8,7 @@ const replaceColor = require("./bin/replaceColor/index.js")
 program
   .name("commander-sharp")
   .description("利用命令行来处理图片")
-  .version("0.1.0");
+  .version("1.0.0-alpha-1.2");
 
 // 压缩
 program.command("compress")
