@@ -26,30 +26,34 @@
 `cst help`
 ## 命令
 ### 压缩图片
-`cst compress [path] [-o] [-q]`,
+`cst compress [input] [output]`,
+#### 参数解析
+* [input] 需要处理的对象，可以是文件也可以是目录，默认当前目录所有可处理的图片，default:"./"
+* [output] 压缩完成输出的目录, 默认覆盖自身 default:"./"
+> 如果输入的`[input]`是一个文件，那么`[output]`就必须是一个文件名称，例如`cst compress demo.png newFileName.png`
+> 如果输入的`[input]`是一个目录，那么`[output]`就必须是一个目录名称，例如`cst compress fileFolder newFileFolder`
 #### options
-* `-q , --quality [string]` 压缩率，值越高，压缩的越严重。default:30
-* `-o , --out <path>` 压缩完成输出的文件夹 default:覆盖原文件
+* `quality`, 图片的压缩质量,值越大，压缩效果越厉害，default: 80
 #### examples
 * `cst compress`
 * `cst compress "./"` 
-* `cst compress "a.png` 
-* `cst compress "./folder/a.png"`  
-* `cst compress "a.png" -q 90`
-* `cst compress "a.png" -o "./demo"`
+* `cst compress "a.png"` 
+* `cst compress --quality 50 "./folder/a.png" "demo.png"` 
+* `cst compress "./folder/a.png" "./newfolder/demo.png"`
 
 ***
 ### 将图片中的指定颜色换成另一种颜色
-`cst replaceColor <path> <newColor> [--color] [--range] [--out]`
+`cst replaceColor [input] [output]`
 #### options
-* `-c, --color [string]` 需要替换的颜色,default:颜色全部替换
-* `-r, --range [number]` 模糊匹配范围,值越高，模糊查找的范围就越大,0-255，default:5
-* `-o, --out [string]` 压缩完成输出的文件夹 default:覆盖原文件
+* `--target-color [color]` 需要替换的颜色,default:颜色全部替换
+* `--new-color [color]` 替换而成的新颜色,default:#ffffff
+* `--range [number]` 模糊匹配范围,值越高，模糊查找的范围就越大,0-255，default:5
 
 #### examples
-* `cst replaceColor "a.png" white` 替换a.png所有的颜色为白色
-* `cst replaceColor "a.png" #ff0000` 替换a.png所有的颜色为红色
-* `cst replaceColor "a.png" white -o "./demo"` 处理的完成的图片会被复制到`./demo/a.png`
+* `cst replaceColor "a.png" "b.png"` 替换a.png所有的颜色为白色,并生成替换完成的b.png
+* `cst replaceColor --new-color #ff0000 "a.png" "b.png"` 替换a.png所有的颜色为红色,并生成替换完成的b.png
+* `cst replaceColor --new-color #ff0000 --target-color #000000 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,并生成替换完成的b.png
+* `cst replaceColor --new-color #ff0000 --target-color #000000 --range 20 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,模糊搜索范围是20，可以覆盖更多的颜色,并生成替换完成的b.png
 
 
 ***
