@@ -8,6 +8,35 @@ cst compress //压缩本目录的所有文件，并且其他配置按照默认�
 
 cst replaceColor --targetColor [string] --newColor [string] --range [5] [target] [output] 
 
+### 旋转命令强化
+cst rotate A.jpg 90 //-->A.jpg旋转90度
+cst rotate A.jpg 90 B.jpg //-->A.jpg 旋转90度 然后保存成为B.jpg
+cst rotate A.jpg B.jpg //-->A.jpg 选装默认角度 然后保存为B.jpg
+cst rptate A.jpg 
+
+### 压缩命令强化
+cst compress A.jpg 90 //-->A.jpg 压缩90% 覆盖自身
+cst compress A.jpg 90 B.jpg
+cst compress A.jpg B.jpg
+cst compress A.jpg //-->按照默认压缩率压缩，然后覆盖自身
+
+### replaceColor 命令强化
+cst replaceColor A.jpg                              //-->error 无效命令，缺失了替换的颜色
+cst replaceColor A.jpg white                        //-->更改A.jpg 所有像素为#ffffff像素，默认模糊范围,并且覆盖自身
+cst replaceColor A.jpg white red                    //-->更改A.jpg 中的所有#ffffff像素。将其替换为#ff0000, 默认模糊范围, 并且覆盖自身
+cst replaceColor A.jpg white B.jpg                  //-->更改A.jpg 中的所有像素为#ffffff，默认模糊范围,并且保存为B.jpg
+cst replaceColor A.jpg white red B.jpg 
+cst replaceColor A.jpg white red B.jpg --range 20   //-->20的模糊范围
+
+### resize 命令强化
+cst resize A.jpg 1080                         //-->修改A.jpg 宽为1080
+cst resize A.jpg 1080 1920                    //-->修改A.jpg 宽为1080，高是1920
+cst resize A.jpg 1080 B.jpg                   //-->修改A.jpg 宽为1080, 保存为B.jpg
+cst resize A.jpg 1080 1920 B.jpg
+
+### 设计原则 
+* 可变参数不多于四个， 否则难以管理
+
 
 计划表
 ### v1.0.4， 
@@ -17,15 +46,14 @@ cst replaceColor --targetColor [string] --newColor [string] --range [5] [target]
 
 ### v1.0.5 
 [x] 增加图片旋转功能 `cst rotate a.png b.png --angle 90 --background #ff0000`
-[ ] 完成`config-type`命令
+[x] 完成`config-type`命令
 [x] 优化代码逻辑
 [x] fixed:commander 无法使用负数参数
-[ ] 增加图片resize功能 
-[ ] 增加图片裁剪功能
-
-
 
 ### v1.0.6
-[ ] 优化命令使用
+[ ] 强化命令使用
+[ ] 增加图片resize功能 
+[ ] 增加图片CanvasResize功能,画布修改
+[ ] 增加图片裁剪功能
 
 ### v1.0.7
