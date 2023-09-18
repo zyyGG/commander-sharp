@@ -30,8 +30,9 @@
 #### 参数解析
 * [input] 需要处理的对象，可以是文件也可以是目录，默认当前目录所有可处理的图片，default:"./"
 * [output] 压缩完成输出的目录, 默认覆盖自身 default:"./"
-> 如果输入的`[input]`是一个文件，那么`[output]`就必须是一个文件名称，例如`cst compress demo.png newFileName.png`
-> 如果输入的`[input]`是一个目录，那么`[output]`就必须是一个目录名称，例如`cst compress fileFolder newFileFolder`
+*如果输入的`[input]`是一个文件，那么`[output]`就必须是一个文件名称，例如`cst compress demo.png newFileName.png`*
+
+*如果输入的`[input]`是一个目录，那么`[output]`就必须是一个目录名称，例如`cst compress fileFolder newFileFolder`*
 #### options
 * `quality`, 图片的压缩质量,值越大，压缩效果越厉害，default: 80
 #### examples
@@ -54,7 +55,7 @@
 * `cst replaceColor --new-color #ff0000 "a.png" "b.png"` 替换a.png所有的颜色为红色,并生成替换完成的b.png
 * `cst replaceColor --new-color #ff0000 --target-color #000000 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,并生成替换完成的b.png
 * `cst replaceColor --new-color #ff0000 --target-color #000000 --range 20 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,模糊搜索范围是20，并生成替换完成的b.png
-
+***
 ### 旋转图片（rotate）
 `cst rotate [input] [output]`
 #### options
@@ -70,14 +71,10 @@
 *如果不指定`--angle`，那么图片将会旋转90度*
 *不要多次旋转图片，最好一次旋转到位*
 
-
-
 ***
 ## 其他命令
 ### 查看可处理的图片类型
 `cst config-type [string]`
 
-## 更新日志
+## 其他
 [github](https://github.com/zyyGG/commander-sharp)
-
-[日志](https://github.com/zyyGG/commander-sharp/blob/master/log.md)

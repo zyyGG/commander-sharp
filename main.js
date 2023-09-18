@@ -46,18 +46,6 @@ program.command("replaceColor")
   .option("--range [number]", "模糊匹配范围,值越高，模糊查找的范围就越大,0-255", 5)
   .action(replaceColor);
 
-// 测试自定义选项功能
-program.command("test")
-  .description("测试")
-  .argument("[input]", "input file", "./")
-  .argument("[rest...]", "rest all of commander in here")
-  .option("-o,--demo", "test option", "hello")
-  .action((input, rest, options) => {
-    console.log(input)
-    console.log(rest)
-    console.log(options)
-  })
-
 // 旋转图片功能
 program.command("rotate")
   .description("旋转图片")
