@@ -6,6 +6,7 @@ const Color = require("color")
 const listFolder = require("../../utils/listFolder")
 const getOutputPath = require("../../utils/getOutputPath")
 const { writeFileCallback } = require("../../utils/callback")
+const getFileList = require("../../utils/getFileList")
 
 
 /**
@@ -18,8 +19,7 @@ const { writeFileCallback } = require("../../utils/callback")
  */
 module.exports = function (input, output, options) {
   // 初始化与参数检测
-  const result = listFolder(input)
-  if (result.length === 0) return console.log(`${chalk.redBright("No file or dir found!")}`)
+  const result = getFileList(input)
 
   // 开始执行
   result.forEach(async (item) => {

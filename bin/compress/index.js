@@ -1,9 +1,9 @@
 const fs = require("fs")
 const sharp = require("sharp")
 
-const listFolder = require("../../utils/listFolder")
 const getOutputPath = require("../../utils/getOutputPath")
 const { writeFileCallback } = require("../../utils/callback")
+const getFileList = require("../../utils/getFileList")
 
 /**
  * 压缩目标目录 或者 单个文件
@@ -12,9 +12,7 @@ const { writeFileCallback } = require("../../utils/callback")
  * @param {number} options.quality 图片的处理质量
  */
 function compress(input, output, options) {
-  const result = listFolder(input)
-  // 空数组就直接返回一个错误提示
-  if (result.length === 0) return console.log(`${chalk.redBright("No file or dir found!")}`)
+  const result = getFileList(input)
   // 预处理图片
   result.forEach(async (item) => {
     const image = sharp(item)
@@ -23,7 +21,6 @@ function compress(input, output, options) {
 
     outputPath = getOutputPath(input, output, item)
     fs.writeFile(outputPath, data, writeFileCallback)
-
   })
 }
 
