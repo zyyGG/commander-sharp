@@ -25,7 +25,7 @@
 ## 帮助
 `cst help`
 ## 命令
-### 压缩图片
+### 压缩图片（compress）
 `cst compress [input] [output]`,
 #### 参数解析
 * [input] 需要处理的对象，可以是文件也可以是目录，默认当前目录所有可处理的图片，default:"./"
@@ -42,7 +42,7 @@
 * `cst compress "./folder/a.png" "./newfolder/demo.png"`
 
 ***
-### 将图片中的指定颜色换成另一种颜色
+### 将图片中的指定颜色换成另一种颜色（replaceColor）
 `cst replaceColor [input] [output]`
 #### options
 * `--target-color [color]` 需要替换的颜色,default:颜色全部替换
@@ -53,7 +53,23 @@
 * `cst replaceColor "a.png" "b.png"` 替换a.png所有的颜色为白色,并生成替换完成的b.png
 * `cst replaceColor --new-color #ff0000 "a.png" "b.png"` 替换a.png所有的颜色为红色,并生成替换完成的b.png
 * `cst replaceColor --new-color #ff0000 --target-color #000000 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,并生成替换完成的b.png
-* `cst replaceColor --new-color #ff0000 --target-color #000000 --range 20 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,模糊搜索范围是20，可以覆盖更多的颜色,并生成替换完成的b.png
+* `cst replaceColor --new-color #ff0000 --target-color #000000 --range 20 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,模糊搜索范围是20，并生成替换完成的b.png
+
+### 旋转图片（rotate）
+`cst rotate [input] [output]`
+#### options
+* `--angle [number]` 图片需要旋转的角度，整数顺时针旋转，负数逆时针旋转，默认90度
+* `--background [color]` 图片旋转后的白色空白需要使用什么颜色填充，默认#ffffff
+
+#### examples
+* `cst rotate a.png --angle 60` 旋转a.png 60度,并且覆盖自身
+* `cst rotate a.png b.png --angle 60` 旋转a.png 60度,并保存为b.png
+* `cst rotate a.png b.png --background #ffffff` 旋转a.png 90度（默认度数），因为旋转暴露出的区域用#ffffff填充，并保存为b.png
+
+#### note
+*如果不指定`--angle`，那么图片将会旋转90度*
+*不要多次旋转图片，最好一次旋转到位*
+
 
 
 ***

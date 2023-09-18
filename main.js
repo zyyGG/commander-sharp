@@ -8,14 +8,14 @@ const rotate = require("./bin/rotate/index.js")
 
 process.argv;
 // 处理argv --angle无法输入负数的问题
-(()=>{
+(() => {
   process.argv = process.argv.map((item, index) => {
     if (/^(--angle)$/.test(item)) {
       let result = Number(process.argv[index + 1])
       if (isNaN(result)) {
         console.log(`${item}值异常，{process.argv[index + 1]}`)
         process.exit(1)
-      }else{
+      } else {
         process.argv[index + 1] = result
       }
     }
@@ -46,6 +46,19 @@ program.command("replaceColor")
   .option("--range [number]", "模糊匹配范围,值越高，模糊查找的范围就越大,0-255", 5)
   .action(replaceColor);
 
+// 测试自定义选项功能
+program.command("test")
+  .description("测试")
+  .argument("[input]", "input file", "./")
+  .argument("[rest...]", "rest all of commander in here")
+  .option("-o,--demo", "test option", "hello")
+  .action((input, rest, options) => {
+    console.log(input)
+    console.log(rest)
+    console.log(options)
+  })
+
+// 旋转图片功能
 program.command("rotate")
   .description("旋转图片")
   .argument("[input]", "需要处理图片目录路径或者图片路径", "./")
