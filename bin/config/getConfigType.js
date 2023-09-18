@@ -1,4 +1,4 @@
-
+const { config } = require("./index")
 /**
  * 获取当前的支持列表，输入图片后缀就可以了
  * @param {string | undefined} str support image type
@@ -6,7 +6,9 @@
  * getConfigType("png")
  */
 function getConfigType(str) {
-  console.log("开发中")
+  if(str === undefined) console.log(config)
+  else console.log(config.filter(item=>item.name === str)[0])
+
 }
 
 module.exports = getConfigType
