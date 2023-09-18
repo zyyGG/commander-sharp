@@ -1,4 +1,5 @@
 const listFolder = require("./listFolder.js")
+const chalk = require("chalk")
 
 /**
  * 获取指定路径下的所有image文件

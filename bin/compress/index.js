@@ -19,7 +19,7 @@ function compress(input, output, options) {
     const metadata = await image.metadata()
     const data = await image.toFormat(metadata.format, { quality: Math.min(Math.max(100 - options.quality, 1), 100) }).toBuffer()
 
-    outputPath = getOutputPath(input, output, item)
+    const outputPath = getOutputPath(input, output, item)
     fs.writeFile(outputPath, data, writeFileCallback)
   })
 }

@@ -17,7 +17,7 @@ const getFileList = require("../../utils/getFileList")
  * @param {number} options.range 模糊范围
  * @returns 
  */
-module.exports = function (input, output, options) {
+function replaceColor(input, output, options) {
   // 初始化与参数检测
   const result = getFileList(input)
 
@@ -83,3 +83,6 @@ function sameColor(color, targeColor, range = 5) {
   }
   return true
 }
+
+
+module.exports = replaceColor
