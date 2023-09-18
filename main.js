@@ -26,7 +26,7 @@ process.argv;
 program
   .name("commander-sharp")
   .description("利用命令行来处理图片")
-  .version("1.0.3");
+  .version("1.0.6");
 
 // 压缩
 program.command("compress")
