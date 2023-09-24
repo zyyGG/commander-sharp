@@ -19,6 +19,12 @@
 * `npm link`
 * 命令行输入`cst --version`，如果看到有输出则安装成功
 
+### 关于sharp的安装问题
+***如果出现sharp安装失败的问题，可以采取sharp官方提供的建议***
+* npm config set sharp_binary_host "https://npmmirror.com/mirrors/sharp"
+* npm config set sharp_libvips_binary_host "https://npmmirror.com/mirrors/sharp-libvips"
+* npm i --global commander-sharp
+
 ***
 ## 帮助
 `cst help`
@@ -70,9 +76,24 @@
 *不要多次旋转图片，最好一次旋转到位*
 
 ***
+### 修改图片大小（resize）
+`cst resize [input] [output] --width [number] -height [number] --fit [string] --position [string] --bakcground [string]`
+#### options
+* `--width [number]` 图片的宽度
+* `--height [number]` 图片的高度
+* `--fit [string]` 决定了图片在被调整尺寸后的行为，可选值：cover, contain, fill, inside, outside, 默认cover
+* `--position [string]` 如果`fit`设置了`contain`,`fit`那么这个参数才会生效，可选值：`top`, `right`, `left`, `bottom`,`centre`。默认`centre`，你也可以组合他们
+* `--bakcground` 如果`fit`设置了`contain`或者其他设置到了图片露出空白的情况，那么这个参数就会生效，用来填充空白的颜色，默认#ffffff
+#### examples
+* `cst resize a.png b.png --width 1080 --height 1920` 将a.png的宽度修改为1080，高度修改为1920，并保存为b.png
+* `cst resize a.png b.png --width 1080` 将a.png的宽度修改为1080，高度按照比例缩放，并保存为b.png
+
+***
 ## 其他命令
 ### 查看可处理的图片类型
 `cst config-type [string]`
 
-## 其他
-[github](https://github.com/zyyGG/commander-sharp)
+## github
+[commander-sharp](https://github.com/zyyGG/commander-sharp)
+[sharp](https://github.com/lovell/sharp)
+
