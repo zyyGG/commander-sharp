@@ -5,6 +5,7 @@ const getConfigType = require("./bin/config/getConfigType.js")
 const compress = require("./bin/compress/index.js")
 const replaceColor = require("./bin/replaceColor/index.js")
 const rotate = require("./bin/rotate/index.js")
+const resize = require("./bin/resize/index.js")
 
 process.argv;
 // 处理argv --angle无法输入负数的问题
@@ -54,6 +55,18 @@ program.command("rotate")
   .option("--angle [number]", "旋转角度,默认90度(无法输入负数，字符串类型的负数也不可以)", -90)
   .option("--background [color]", "旋转后，空白区域的背景色", "#ffffff")
   .action(rotate);
+
+// 修改图片大小功能
+program.command("resize")
+  .description("调整图片大小")
+  .argument("[input]", "需要处理图片目录路径或者图片路径", "./")
+  .argument("[output]", "完成后放置的目录,默认覆盖原文件", "./")
+  .option("--width [number]", "宽度", undefined)
+  .option("--height [number]", "高度", undefined)
+  .option("--fit [cover | contain | fill | inside | outside]", "图片应该以怎样的方式呈现出来", "cover")
+  .option("--position [centre | left | right | bottom | top]","当使用cover,contain的时候应该怎样定位图片","centre")
+  .option("--background [string]","背景的填充色","#ffffff")
+  .action(resize);
 
 // 获取可以处理的图片对象
 program.command("config-type")
