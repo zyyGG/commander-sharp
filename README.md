@@ -89,6 +89,20 @@
 * `cst resize a.png b.png --width 1080` 将a.png的宽度修改为1080，高度按照比例缩放，并保存为b.png
 
 ***
+### 修改画布大小(canvaResize)
+`cst canvaResize [input] [output] --width [number] -height [number] --position [string] --bakcground [string]`
+
+一般用于统一大量图片长宽的场合，例如：微信小程序的分享图片，需要统一长宽，但是图片的长宽比例不一致，这个时候就可以使用这个命令来处理
+
+#### options
+* `--width [number]` 画布的宽度
+* `--height [number]` 画布的高度
+* `--position [string]` 图片在新画布上的位置，可选值：`top`, `right`, `left`, `bottom`,`centre`。默认`centre`，你也可以组合他们例如`"left top"`，输入的时候别忘了双引号
+* `--bakcground` 用来填充空白的颜色，默认#ffffff00
+#### examples
+* `cst canvaResize a.png b.png --width 1080 --height 1920` 将a.png的画布宽度修改为1080，高度修改为1920，并保存为b.png
+* `cst canvaResize a.png b.png --width 1080` 将a.png的画布宽度修改为1080，高度按照原图高度，并保存为b.png
+* `cst canvaResize a.png --width 1080 --position 'left bottom'` 将a.png的画布宽度修改为1080，高度按照原图高度，图片在新画布上的位置在左下角，并覆盖a.png
 ## 其他命令
 ### 查看可处理的图片类型
 `cst config-type [string]`

@@ -6,6 +6,7 @@ const compress = require("./bin/compress/index.js")
 const replaceColor = require("./bin/replaceColor/index.js")
 const rotate = require("./bin/rotate/index.js")
 const resize = require("./bin/resize/index.js")
+const canvaResize = require("./bin/canvaResize/index.js")
 
 process.argv;
 // 处理argv --angle无法输入负数的问题
@@ -67,6 +68,17 @@ program.command("resize")
   .option("--position [centre | left | right | bottom | top]","当使用cover,contain的时候应该怎样定位图片","centre")
   .option("--background [string]","背景的填充色","#ffffff")
   .action(resize);
+
+// 修改图片画布大小
+program.command("canvaResize")
+  .description("修改单个或者多个图片画布大小")
+  .argument("[input]", "需要处理图片目录路径或者图片路径", "./")
+  .argument("[output]", "完成后放置的目录,默认覆盖原文件", "./")
+  .option("--width [number]", "宽度", undefined)
+  .option("--height [number]", "高度", undefined)
+  .option("--position [centre | left | right | bottom | top]","和ps一样往哪个方向调整画布","centre")
+  .option("--background [string]","画布的填充色","#ffffff00")
+  .action(canvaResize);
 
 // 获取可以处理的图片对象
 program.command("config-type")
