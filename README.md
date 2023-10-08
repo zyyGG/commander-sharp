@@ -29,7 +29,13 @@
 ## 帮助
 `cst help`
 ## 命令
-### 压缩图片（compress）
+* [压缩图片](#compress)
+* [更换图片中的颜色](#replaceColor)
+* [旋转图片](#rotate)
+* [修改图片大小](#resize)
+* [修改画布大小](#canvaResize)
+* [其他命令](#other)
+### 压缩图片（compress）<span id="compress"></span>
 `cst compress [input] [output]`,
 #### 参数解析
 * [input] 需要处理的对象，可以是文件也可以是目录，默认当前目录所有可处理的图片，default:"./"
@@ -47,7 +53,7 @@
 * `cst compress "./folder/a.png" "./newfolder/demo.png"`
 
 ***
-### 将图片中的指定颜色换成另一种颜色（replaceColor）
+### 将图片中的指定颜色换成另一种颜色（replaceColor）<span id="replaceColor"></span>
 `cst replaceColor [input] [output]`
 #### options
 * `--target-color [color]` 需要替换的颜色,default:颜色全部替换
@@ -60,7 +66,7 @@
 * `cst replaceColor --new-color #ff0000 --target-color #000000 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,并生成替换完成的b.png
 * `cst replaceColor --new-color #ff0000 --target-color #000000 --range 20 "a.png" "b.png"` 替换a.png的所有黑色像素为红色,模糊搜索范围是20，并生成替换完成的b.png
 ***
-### 旋转图片（rotate）
+### 旋转图片（rotate）<span id="rotate"></span>
 `cst rotate [input] [output]`
 #### options
 * `--angle [number]` 图片需要旋转的角度，整数顺时针旋转，负数逆时针旋转，默认90度
@@ -76,7 +82,7 @@
 *不要多次旋转图片，最好一次旋转到位*
 
 ***
-### 修改图片大小（resize）
+### 修改图片大小（resize）<span id="resize"></span>
 `cst resize [input] [output] --width [number] -height [number] --fit [string] --position [string] --bakcground [string]`
 #### options
 * `--width [number]` 图片的宽度
@@ -89,7 +95,7 @@
 * `cst resize a.png b.png --width 1080` 将a.png的宽度修改为1080，高度按照比例缩放，并保存为b.png
 
 ***
-### 修改画布大小(canvaResize)
+### 修改画布大小(canvaResize) <span id="canvaResize"></span>
 `cst canvaResize [input] [output] --width [number] -height [number] --position [string] --bakcground [string]`
 
 一般用于统一大量图片长宽的场合，例如：微信小程序的分享图片，需要统一长宽，但是图片的长宽比例不一致，这个时候就可以使用这个命令来处理
@@ -103,7 +109,7 @@
 * `cst canvaResize a.png b.png --width 1080 --height 1920` 将a.png的画布宽度修改为1080，高度修改为1920，并保存为b.png
 * `cst canvaResize a.png b.png --width 1080` 将a.png的画布宽度修改为1080，高度按照原图高度，并保存为b.png
 * `cst canvaResize a.png --width 1080 --position 'left bottom'` 将a.png的画布宽度修改为1080，高度按照原图高度，图片在新画布上的位置在左下角，并覆盖a.png
-## 其他命令
+## 其他命令 <span id="other"></span>
 ### 查看可处理的图片类型
 `cst config-type [string]`
 
