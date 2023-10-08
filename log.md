@@ -13,7 +13,7 @@
 ### v1.0.6
 [x] 增加图片resize功能 
 [x] 增加图片CanvasResize功能,画布修改
-[ ] 增加图片裁剪功能
+[x] 增加图片裁剪功能
 [ ] 图片模糊blur
 
 ### 未来版本内容
@@ -34,9 +34,13 @@ cst resize a.png 1080 1920 b.png
 * 可变参数不多于四个， 否则难以管理
 <!-- 直接压缩对应图片 -->
 cst compress demo.png 
+
 cst compress demo.png 70
+
 <!-- 需要压缩目录 -->
+
 cst compress "./demo" 70 newfiles    压缩./demo目录，每张图片压缩率70, 完成的图片放置到newfiles文件夹
+
 cst compress //压缩本目录的所有文件，并且其他配置按照默认来
 
 

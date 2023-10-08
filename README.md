@@ -109,6 +109,22 @@
 * `cst canvaResize a.png b.png --width 1080 --height 1920` 将a.png的画布宽度修改为1080，高度修改为1920，并保存为b.png
 * `cst canvaResize a.png b.png --width 1080` 将a.png的画布宽度修改为1080，高度按照原图高度，并保存为b.png
 * `cst canvaResize a.png --width 1080 --position 'left bottom'` 将a.png的画布宽度修改为1080，高度按照原图高度，图片在新画布上的位置在左下角，并覆盖a.png
+
+***
+### 裁剪图片(extract) <span id="extract"></span>
+`cst extract [input] [output] --width [number] -height [number] --left [number] --top [number]`
+
+指定裁剪的范围, 如果要批量裁剪大量的图片，那么最好在裁剪之间统一好好需要处理的大小，比如使用CanvasResize功能调整大小
+
+### options
+* `--width` 宽度
+* `--height` 高度
+* `--left` x轴偏移，默认从左上角开始
+* `--top`y轴偏移，默认从左上角开始
+#### examples
+* `cst a.png --width 100 --left 50`
+
+***
 ## 其他命令 <span id="other"></span>
 ### 查看可处理的图片类型
 `cst config-type [string]`
